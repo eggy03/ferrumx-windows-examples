@@ -12,14 +12,14 @@ public class Win32Processor {
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 
         // get a List of all CPU IDs
-        List<String> processorIdList = Win32_Processor.getProcessorList();
+        List<String> cpuIdList = Win32_Processor.getProcessorList();
 
         // For each CPUID, fetch a map of its properties
-        for(String processorId: processorIdList){
-            Map<String, String> object = Win32_Processor.getCurrentProcessor(processorId);
+        for(String cpuId : cpuIdList){
+            Map<String, String> cpuMap = Win32_Processor.getCurrentProcessor(cpuId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> processorProperty : object.entrySet()){
-               System.out.println(processorProperty.getKey()+ ": "+ processorProperty.getValue());
+            for(Map.Entry<String, String> cpu : cpuMap.entrySet()){
+               System.out.println(cpu.getKey()+ ": "+ cpu.getValue());
             }
         }
     }
