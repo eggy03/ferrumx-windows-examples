@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>version-3.0.0-examples</module>
-        <module>version-2.2.0-examples</module>
         <module>version-1.3.7-examples</module>
     </modules>
 
