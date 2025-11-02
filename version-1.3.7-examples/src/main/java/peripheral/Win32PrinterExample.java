@@ -21,6 +21,7 @@ public class Win32PrinterExample {
             for(Map.Entry<String, String> printer : printerMap.entrySet()){
                 System.out.println(printer.getKey()+ ": "+ printer.getValue());
             }
+            System.out.println();
         }
     }
 }
