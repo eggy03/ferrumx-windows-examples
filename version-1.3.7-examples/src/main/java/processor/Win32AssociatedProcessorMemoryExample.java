@@ -7,7 +7,7 @@ import com.ferrumx.system.hardware.Win32_Processor;
 import java.io.IOException;
 import java.util.List;
 
-public class Win32AssociatedProcessorMemory {
+public class Win32AssociatedProcessorMemoryExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 

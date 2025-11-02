@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class Win32PortConnector {
+public class Win32PortConnectorExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 

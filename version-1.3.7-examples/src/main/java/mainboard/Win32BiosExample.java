@@ -6,7 +6,7 @@ import com.ferrumx.system.hardware.Win32_BIOS;
 import java.io.IOException;
 import java.util.Map;
 
-public class Win32Bios {
+public class Win32BiosExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 

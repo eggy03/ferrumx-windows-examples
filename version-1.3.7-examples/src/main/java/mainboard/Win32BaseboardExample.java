@@ -6,7 +6,7 @@ import com.ferrumx.system.hardware.Win32_Baseboard;
 import java.io.IOException;
 import java.util.Map;
 
-public class Win32Baseboard {
+public class Win32BaseboardExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 
