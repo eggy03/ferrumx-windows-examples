@@ -7,7 +7,7 @@ import com.ferrumx.system.hardware.Win32_DiskDrive;
 import java.io.IOException;
 import java.util.List;
 
-public class Win32DiskDriveToDiskPartition {
+public class Win32DiskDriveToDiskPartitionExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class Win32OperatingSystem {
+public class Win32OperatingSystemExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 

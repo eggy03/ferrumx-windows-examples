@@ -7,7 +7,7 @@ import com.ferrumx.system.hardware.Win32_NetworkAdapter;
 import java.io.IOException;
 import java.util.List;
 
-public class Win32NetworkAdapterSetting {
+public class Win32NetworkAdapterSettingExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 

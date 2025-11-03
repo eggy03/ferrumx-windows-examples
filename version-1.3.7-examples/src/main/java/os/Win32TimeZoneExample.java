@@ -6,7 +6,7 @@ import com.ferrumx.system.operating_system.Win32_TimeZone;
 import java.io.IOException;
 import java.util.Map;
 
-public class Win32TimeZone {
+public class Win32TimeZoneExample {
 
     public static void main(String[] args) throws IOException, ShellException, InterruptedException {
 
