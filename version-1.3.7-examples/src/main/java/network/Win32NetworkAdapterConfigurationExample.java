@@ -23,9 +23,7 @@ public class Win32NetworkAdapterConfigurationExample {
             String networkAdapterConfigurationIndex = Win32_NetworkAdapterSetting.getIndex(networkAdapterId);
             Map<String, String> networkAdapterConfigurationMap = Win32_NetworkAdapterConfiguration.getAdapterConfiguration(networkAdapterConfigurationIndex);
             // iterate through the map and print the configuration properties
-            for(Map.Entry<String, String> networkAdapterConfiguration : networkAdapterConfigurationMap.entrySet()){
-                System.out.println(networkAdapterConfiguration.getKey()+ ": "+ networkAdapterConfiguration.getValue());
-            }
+            networkAdapterConfigurationMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

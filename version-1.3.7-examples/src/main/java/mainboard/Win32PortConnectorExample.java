@@ -18,9 +18,7 @@ public class Win32PortConnectorExample {
         for(String portConnectorId : portConnectorIdList){
             Map<String, String> portConnectorMap = Win32_PortConnector.getBaseboardPorts(portConnectorId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> portConnector : portConnectorMap.entrySet()){
-                System.out.println(portConnector.getKey()+ ": "+ portConnector.getValue());
-            }
+            portConnectorMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

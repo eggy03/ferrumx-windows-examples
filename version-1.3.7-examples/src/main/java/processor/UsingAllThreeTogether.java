@@ -19,9 +19,7 @@ public class UsingAllThreeTogether {
         for(String cpuId : cpuIdList){
             // get a map of cpu properties for the current CPU
             Map<String, String> cpuMap = Win32_Processor.getCurrentProcessor(cpuId);
-            for(Map.Entry<String, String> cpu: cpuMap.entrySet()){
-                System.out.println(cpu.getKey()+ ": "+cpu.getValue());
-            }
+            cpuMap.forEach((k, v)-> System.out.println(k+": "+v));
             System.out.println();
 
             // get a list of CacheIDs for the current CPU
@@ -30,9 +28,7 @@ public class UsingAllThreeTogether {
             for(String cacheId: cacheIdList){
                 // for each cacheID, get a map of Cache Memory and print its details
                 Map<String, String> cacheMemoryMap = Win32_CacheMemory.getCPUCache(cacheId);
-                for(Map.Entry<String, String> cacheMemory: cacheMemoryMap.entrySet()){
-                    System.out.println(cacheMemory.getKey()+ ": "+cacheMemory.getValue());
-                }
+                cacheMemoryMap.forEach((k, v)-> System.out.println(k+": "+v));
                 System.out.println();
             }
         }

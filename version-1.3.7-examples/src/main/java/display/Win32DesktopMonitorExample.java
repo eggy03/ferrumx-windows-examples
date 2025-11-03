@@ -18,9 +18,7 @@ public class Win32DesktopMonitorExample {
         for(String monitorId : monitorIdList){
             Map<String, String> monitorMap = Win32_DesktopMonitor.getMonitorProperties(monitorId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> monitor : monitorMap.entrySet()){
-                System.out.println(monitor.getKey()+ ": "+ monitor.getValue());
-            }
+            monitorMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

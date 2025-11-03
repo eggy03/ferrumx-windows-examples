@@ -19,7 +19,7 @@ public class Win32NetworkAdapterSettingExample {
         // This index ID will be the index of the configuration that will join an adapter with its configuration
 
         // The linking is as follows:
-        // Win32_NetworkAdapter (adapterID) -> Win32_NetworkAdapterSetting (adapterID, index) -> Win32_NetworkAdapterConfiguration (index)
+        // Win32_NetworkAdapter (adapterID) -> Win32_NetworkAdapterSetting (adapterID -> index) -> Win32_NetworkAdapterConfiguration (index)
         for(String networkAdapterId : networkAdapterIdList){
             System.out.println(Win32_NetworkAdapterSetting.getIndex(networkAdapterId));
         }

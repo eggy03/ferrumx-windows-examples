@@ -30,13 +30,8 @@ public class UsingAllThreeTogether {
             Map<String, String> networkAdapterConfigurationMap = Win32_NetworkAdapterConfiguration.getAdapterConfiguration(networkAdapterConfigurationIndex);
 
             // iterate through the maps and print the properties
-            for(Map.Entry<String, String> networkAdapter : networkAdapterMap.entrySet()){
-                System.out.println(networkAdapter.getKey()+ ": "+ networkAdapter.getValue());
-            }
-
-            for(Map.Entry<String, String> networkAdapterConfiguration : networkAdapterConfigurationMap.entrySet()){
-                System.out.println(networkAdapterConfiguration.getKey()+ ": "+ networkAdapterConfiguration.getValue());
-            }
+            networkAdapterMap.forEach((k, v)-> System.out.println(k+": "+v));
+            networkAdapterConfigurationMap.forEach((k, v)-> System.out.println(k+": "+v));
             System.out.println();
         }
     }

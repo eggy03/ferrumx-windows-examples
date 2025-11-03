@@ -18,9 +18,7 @@ public class Win32OperatingSystemExample {
         for(String osId : osIdList){
             Map<String, String> osMap = Win32_OperatingSystem.getOSInfo(osId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> os : osMap.entrySet()){
-                System.out.println(os.getKey()+ ": "+ os.getValue());
-            }
+            osMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

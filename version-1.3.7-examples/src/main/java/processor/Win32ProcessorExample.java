@@ -18,9 +18,7 @@ public class Win32ProcessorExample {
         for(String cpuId : cpuIdList){
             Map<String, String> cpuMap = Win32_Processor.getCurrentProcessor(cpuId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> cpu : cpuMap.entrySet()){
-               System.out.println(cpu.getKey()+ ": "+ cpu.getValue());
-            }
+            cpuMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

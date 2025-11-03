@@ -18,9 +18,7 @@ public class Win32VideoControllerExample {
         for(String gpuId : gpuIdList){
             Map<String, String> gpuMap = Win32_VideoController.getGPU(gpuId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> gpu : gpuMap.entrySet()){
-                System.out.println(gpu.getKey()+ ": "+ gpu.getValue());
-            }
+            gpuMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

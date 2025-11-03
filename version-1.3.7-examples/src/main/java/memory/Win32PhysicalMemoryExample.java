@@ -18,10 +18,7 @@ public class Win32PhysicalMemoryExample {
         for(String memoryId : memoryIdList){
             Map<String, String> memoryMap = Win32_PhysicalMemory.getMemory(memoryId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> memory : memoryMap.entrySet()){
-                System.out.println(memory.getKey()+ ": "+ memory.getValue());
-            }
-            System.out.println();
+            memoryMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

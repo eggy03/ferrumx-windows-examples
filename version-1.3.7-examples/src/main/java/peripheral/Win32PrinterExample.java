@@ -18,9 +18,7 @@ public class Win32PrinterExample {
         for(String printerId : printerIdList){
             Map<String, String> printerMap = Win32_Printer.getCurrentPrinter(printerId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> printer : printerMap.entrySet()){
-                System.out.println(printer.getKey()+ ": "+ printer.getValue());
-            }
+            printerMap.forEach((k, v)-> System.out.println(k+": "+v));
             System.out.println();
         }
     }

@@ -19,9 +19,7 @@ public class Win32NetworkAdapterExample {
         for(String networkAdapterId : networkAdapterIdList){
             Map<String, String> networkAdapterMap = Win32_NetworkAdapter.getNetworkAdapters(networkAdapterId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> networkAdapter : networkAdapterMap.entrySet()){
-                System.out.println(networkAdapter.getKey()+ ": "+ networkAdapter.getValue());
-            }
+            networkAdapterMap.forEach((k, v)-> System.out.println(k+": "+v));
         }
     }
 }

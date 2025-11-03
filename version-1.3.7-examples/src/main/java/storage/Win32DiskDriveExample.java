@@ -18,9 +18,7 @@ public class Win32DiskDriveExample {
         for(String diskDriveId : diskDriveIdList){
             Map<String, String> diskDriveMap = Win32_DiskDrive.getDrive(diskDriveId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> diskDrive : diskDriveMap.entrySet()){
-                System.out.println(diskDrive.getKey()+ ": "+ diskDrive.getValue());
-            }
+            diskDriveMap.forEach((k, v)-> System.out.println(k+": "+v));
             System.out.println();
         }
     }

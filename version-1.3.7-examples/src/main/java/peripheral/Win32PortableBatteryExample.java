@@ -12,9 +12,7 @@ public class Win32PortableBatteryExample {
 
         Map<String, String> batteryMap = Win32_PortableBattery.getPortableBattery();
         // iterate through the map and print the properties
-        for(Map.Entry<String, String> battery : batteryMap.entrySet()){
-            System.out.println(battery.getKey()+ ": "+ battery.getValue());
-        }
+        batteryMap.forEach((k, v)-> System.out.println(k+": "+v));
 
     }
 }

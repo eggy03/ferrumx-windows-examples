@@ -18,9 +18,7 @@ public class Win32SoundDeviceExample {
         for(String soundDeviceId : soundDeviceIdList){
             Map<String, String> soundDeviceMap = Win32_SoundDevice.getCurrentAudioDevice(soundDeviceId);
             // iterate through the map and print the properties
-            for(Map.Entry<String, String> soundDevice : soundDeviceMap.entrySet()){
-                System.out.println(soundDevice.getKey()+ ": "+ soundDevice.getValue());
-            }
+            soundDeviceMap.forEach((k, v)-> System.out.println(k+": "+v));
             System.out.println();
         }
     }

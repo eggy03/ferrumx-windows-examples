@@ -24,9 +24,7 @@ public class Win32CacheMemoryExample {
             // for each cacheID, get a map of Cache Memory and print its details
             for(String cacheId: cacheIdList){
                 Map<String, String> cacheMemoryMap = Win32_CacheMemory.getCPUCache(cacheId);
-                for(Map.Entry<String, String> cacheMemory: cacheMemoryMap.entrySet()){
-                    System.out.println(cacheMemory.getKey()+ ": "+cacheMemory.getValue());
-                }
+                cacheMemoryMap.forEach((k, v)-> System.out.println(k+": "+v));
                 System.out.println();
             }
         }
