@@ -1,4 +1,4 @@
-package os;
+package system;
 
 import com.ferrumx.exceptions.ShellException;
 import com.ferrumx.system.operating_system.Win32_TimeZone;
