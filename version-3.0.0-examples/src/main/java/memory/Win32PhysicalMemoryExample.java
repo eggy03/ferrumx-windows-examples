@@ -2,8 +2,9 @@ package memory;
 
 import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.memory.Win32PhysicalMemoryService;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 public class Win32PhysicalMemoryExample {
 
     public static void main(String[] args){
@@ -13,20 +14,20 @@ public class Win32PhysicalMemoryExample {
         // and each object’s "toString()" prints its fields in JSON pretty-print format.
         new Win32PhysicalMemoryService()
                 .get()
-                .forEach(memory -> System.out.println(memory.toString()));
+                .forEach(memory -> log.info(memory.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
         try(PowerShell shell = PowerShell.openSession()){
             new Win32PhysicalMemoryService()
                     .get(shell)
-                    .forEach(memory -> System.out.println(memory.toString()));
+                    .forEach(memory -> log.info(memory.toString()));
         }
 
         // you can also access individual fields for each Win32PhysicalMemory object
         new Win32PhysicalMemoryService()
                 .get()
                 .forEach(memory ->
-                        System.out.println(memory.getTag()+", "+memory.getPartNumber()) // more fields accessible
+                        log.info("{}, {}", memory.getTag(), memory.getPartNumber()) // more fields accessible
                 );
     }
 }

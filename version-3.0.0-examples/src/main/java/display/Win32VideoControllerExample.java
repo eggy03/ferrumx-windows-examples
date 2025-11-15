@@ -2,7 +2,9 @@ package display;
 
 import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.display.Win32VideoControllerService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Win32VideoControllerExample {
 
     public static void main(String[] args) {
@@ -12,20 +14,20 @@ public class Win32VideoControllerExample {
         // and each object’s "toString()" prints its fields in JSON pretty-print format.
         new Win32VideoControllerService()
                 .get()
-                .forEach(videoController -> System.out.println(videoController.toString()));
+                .forEach(videoController -> log.info(videoController.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
         try(PowerShell shell = PowerShell.openSession()){
             new Win32VideoControllerService()
                     .get(shell)
-                    .forEach(videoController -> System.out.println(videoController.toString()));
+                    .forEach(videoController -> log.info(videoController.toString()));
         }
 
         // you can also access individual fields for each Win32VideoController object
         new Win32VideoControllerService()
                 .get()
                 .forEach(videoController ->
-                        System.out.println(videoController.getDeviceId()+", "+videoController.getName()) // more fields accessible
+                        log.info("{}, {}", videoController.getDeviceId(), videoController.getName()) // more fields accessible
                 );
     }
 }

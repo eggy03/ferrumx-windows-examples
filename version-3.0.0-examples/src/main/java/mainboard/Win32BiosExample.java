@@ -2,7 +2,9 @@ package mainboard;
 
 import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.mainboard.Win32BiosService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Win32BiosExample {
 
     public static void main(String[] args){
@@ -12,20 +14,20 @@ public class Win32BiosExample {
         // and each object’s "toString()" prints its fields in JSON pretty-print format.
         new Win32BiosService()
                 .get()
-                .forEach(bios -> System.out.println(bios.toString()));
+                .forEach(bios -> log.info(bios.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
         try(PowerShell shell = PowerShell.openSession()){
             new Win32BiosService()
                     .get(shell)
-                    .forEach(bios -> System.out.println(bios.toString()));
+                    .forEach(bios -> log.info(bios.toString()));
         }
 
         // you can also access individual fields for each Win32Bios object
         new Win32BiosService()
                 .get()
                 .forEach(bios ->
-                        System.out.println(bios.getName()+", "+bios.isPrimaryBios()) // more fields accessible
+                        log.info("{}, {}", bios.getName(), bios.isPrimaryBios()) // more fields accessible
                 );
     }
 }
