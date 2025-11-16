@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 @Slf4j
+@SuppressWarnings("unused")
 public class MsftNetworkCombinedExample {
 
     public static void main(String[] args){
