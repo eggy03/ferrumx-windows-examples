@@ -19,8 +19,8 @@ public class MsftNetworkExample {
     public static void main (String[] args){
         try (PowerShell shell = PowerShell.openSession()){
             //This example shows how to query each MSFT_* network class individually.
-            // can also use service.get() instead of service.get(Powershell) to have an auto managed powershell session
-            // it is recommended to create and re-use your powershell session for batch queries like this
+            // can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
+            // it is recommended to create and re-use your PowerShell session for batch queries like this
             List<MsftNetAdapter> adapterList = new MsftNetAdapterService().get(shell);
             List<MsftNetIpAddress> ipAddressList = new MsftNetIpAddressService().get(shell);
             List<MsftDnsClientServerAddress> dnsClientServerAddressList = new MsftDnsClientServerAddressService().get(shell);

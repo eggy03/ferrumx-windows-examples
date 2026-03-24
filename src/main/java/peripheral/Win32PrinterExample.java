@@ -8,8 +8,8 @@ public class Win32PrinterExample {
 
     public static void main (String[] args){
 
-        // can also use service.get(Powershell) instead of service.get() to have a manually managed powershell session
-        // it is recommended to create and re-use your powershell session for batch queries
+        // can also use service.get(shell parameter...) instead of service.get() to have a manually managed PowerShell session
+        // it is recommended to create and re-use your PowerShell session for batch queries
         new Win32PrinterService().get()
                 .forEach(printer -> log.info(printer.toString()));
 

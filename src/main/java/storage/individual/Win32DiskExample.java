@@ -8,14 +8,13 @@ import io.github.eggy03.ferrumx.windows.service.storage.Win32DiskPartitionServic
 import io.github.eggy03.ferrumx.windows.service.storage.Win32LogicalDiskService;
 import lombok.extern.slf4j.Slf4j;
 
-@SuppressWarnings("unused")
 @Slf4j
 public class Win32DiskExample {
 
     public static void main (String[] args){
         // This example shows how to query the individual Win32 disk related classes.
-        // You can also use service.get() instead of service.get(Powershell) to have an auto managed powershell session
-        // However, it is recommended to create and re-use your powershell session for batch queries like this
+        // You can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
+        // However, it is recommended to create and re-use your PowerShell session for batch queries like this
           try (PowerShell shell = PowerShell.openSession()){
 
               new Win32DiskDriveService()

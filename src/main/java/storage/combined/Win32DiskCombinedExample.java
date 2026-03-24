@@ -24,7 +24,7 @@ public class Win32DiskCombinedExample {
             List<Win32DiskPartitionToLogicalDisk> combinedPartitionToLogical =
                     new Win32DiskPartitionToLogicalDiskService().get(shell);
 
-            // you can use the toString() method to print the combined objects in a json pretty print format
+            // you can use the toString() method to print the combined objects in a JSON pretty print format
             // or access the fields individually
         }
 

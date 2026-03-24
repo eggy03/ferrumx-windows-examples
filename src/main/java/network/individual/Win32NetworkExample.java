@@ -17,8 +17,8 @@ public class Win32NetworkExample {
     public static void main (String[] args){
         try (PowerShell shell = PowerShell.openSession()){
             // This example shows how to query each Win32_* network class individually.
-            // can also use service.get() instead of service.get(Powershell) to have an auto managed powershell session
-            // it is recommended to create and re-use your powershell session for batch queries like this
+            // can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
+            // it is recommended to create and re-use your PowerShell session for batch queries like this
             List<Win32NetworkAdapter> adapterList = new Win32NetworkAdapterService().get(shell);
             List<Win32NetworkAdapterConfiguration> configurationList = new Win32NetworkAdapterConfigurationService().get(shell);
             List<Win32NetworkAdapterSetting> settingList = new Win32NetworkAdapterSettingService().get(shell);

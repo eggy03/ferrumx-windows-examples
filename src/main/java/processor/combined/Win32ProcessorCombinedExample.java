@@ -27,7 +27,7 @@ public class Win32ProcessorCombinedExample {
         List<Win32ProcessorToCacheMemory> combinedProcessorAndCacheList =
                 new Win32ProcessorToCacheMemoryService().get();
 
-        // json pretty print the entire object or lists of objects
+        // JSON pretty print the entire object or lists of objects
         combinedProcessorAndCacheList.forEach(processorAndCache -> log.info(processorAndCache.toString()));
 
         // or access the individual fields
