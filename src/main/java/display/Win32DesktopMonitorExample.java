@@ -17,7 +17,7 @@ public class Win32DesktopMonitorExample {
                 .forEach(monitor -> log.info(monitor.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32DesktopMonitorService()
                     .get(shell)
                     .forEach(monitor -> log.info(monitor.toString()));

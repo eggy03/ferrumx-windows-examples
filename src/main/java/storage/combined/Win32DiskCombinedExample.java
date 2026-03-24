@@ -13,9 +13,9 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class Win32DiskCombinedExample {
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             // retrieve 1:N drive to partition and 1:N drive to logical disk associations
             List<Win32DiskDriveToPartitionAndLogicalDisk> combinedDriveToPartitionAndLogical =
                     new Win32DiskDriveToPartitionAndLogicalDiskService().get(shell);

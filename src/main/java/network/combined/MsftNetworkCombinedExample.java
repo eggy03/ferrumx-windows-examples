@@ -14,7 +14,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class MsftNetworkCombinedExample {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         /*
          * Retrieve the combined network data.
@@ -34,7 +34,7 @@ public class MsftNetworkCombinedExample {
          * The toString() implementation of MsftNetAdapterToIpAndDnsAndProfile
          * uses Gson pretty-printing.
          */
-        combinedNetwork.forEach(network -> log.info("Network\n {}",network.toString()));
+        combinedNetwork.forEach(network -> log.info("Network\n {}", network.toString()));
 
         /*
          * Access the individual components.

@@ -12,7 +12,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class Win32NetworkCombinedExample {
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         List<Win32NetworkAdapterToConfiguration> combinedNetwork =
                 new Win32NetworkAdapterToConfigurationService().get();

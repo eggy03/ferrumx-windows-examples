@@ -47,10 +47,10 @@ public class Win32VideoControllerExample {
         new Win32VideoControllerService().get().forEach(System.out::println);
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32VideoControllerService().get(shell).forEach(System.out::println);
         }
-        
+
     }
 }
 ```
@@ -63,7 +63,7 @@ import io.github.eggy03.ferrumx.windows.service.memory.Win32PhysicalMemoryServic
 
 public class Win32PhysicalMemoryExample {
 
-    static void main(String[] args){
+    static void main(String[] args) {
 
         // retrieve and print all PhysicalMemory data using an auto-managed PowerShell session
         // The "get()" method returns a list of Win32PhysicalMemory entity objects,
@@ -71,10 +71,10 @@ public class Win32PhysicalMemoryExample {
         new Win32PhysicalMemoryService().get().forEach(System.out::println);
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32PhysicalMemoryService().get(shell).forEach(System.out::println);
         }
-        
+
     }
 }
 ```
@@ -98,8 +98,8 @@ import java.util.List;
 
 public class MsftNetworkExample {
 
-    static void main(String[] args){
-        try (PowerShell shell = PowerShell.openSession()){
+    static void main(String[] args) {
+        try (PowerShell shell = PowerShell.openSession()) {
             //This example shows how to query each MSFT_* network class individually.
             // can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
             // it is recommended to create and re-use your PowerShell session for batch queries like this
@@ -116,6 +116,7 @@ public class MsftNetworkExample {
     }
 }
 ```
+
 ### Win32 Classes
 
 ```java
@@ -131,8 +132,8 @@ import java.util.List;
 
 public class Win32NetworkExample {
 
-    static void main(String[] args){
-        try (PowerShell shell = PowerShell.openSession()){
+    static void main(String[] args) {
+        try (PowerShell shell = PowerShell.openSession()) {
             // This example shows how to query each Win32_* network class individually.
             // can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
             // it is recommended to create and re-use your PowerShell session for batch queries like this
@@ -160,11 +161,11 @@ import io.github.eggy03.ferrumx.windows.service.storage.Win32LogicalDiskService;
 
 public class Win32DiskExample {
 
-    static void main(String[] args){
+    static void main(String[] args) {
         // This example shows how to query the individual Win32 disk related classes.
         // You can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
         // However, it is recommended to create and re-use your PowerShell session for batch queries like this
-        try (PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
 
             new Win32DiskDriveService().get(shell).forEach(System.out::println);
 

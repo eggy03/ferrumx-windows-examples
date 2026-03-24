@@ -12,7 +12,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class Win32ProcessorCombinedExample {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         /*
          * This example demonstrates how to retrieve a combined processor + cache view.

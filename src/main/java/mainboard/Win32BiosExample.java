@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Win32BiosExample {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // retrieve and print all Bios data using an auto-managed PowerShell session
         // The "get()" method returns a list of Win32Bios entity objects,
@@ -17,7 +17,7 @@ public class Win32BiosExample {
                 .forEach(bios -> log.info(bios.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32BiosService()
                     .get(shell)
                     .forEach(bios -> log.info(bios.toString()));

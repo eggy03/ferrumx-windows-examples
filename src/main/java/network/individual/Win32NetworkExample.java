@@ -14,8 +14,8 @@ import java.util.List;
 @Slf4j
 public class Win32NetworkExample {
 
-    public static void main (String[] args){
-        try (PowerShell shell = PowerShell.openSession()){
+    public static void main(String[] args) {
+        try (PowerShell shell = PowerShell.openSession()) {
             // This example shows how to query each Win32_* network class individually.
             // can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
             // it is recommended to create and re-use your PowerShell session for batch queries like this

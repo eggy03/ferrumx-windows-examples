@@ -9,11 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Win32ProcessorAndCacheExample {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // This example shows how to query each of Win32_Processor, Win32_AssociatedProcessorMemory and Win32_CacheMemory.
         // You can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
         // However, it is recommended to create and re-use your PowerShell session for batch queries like this
-        try (PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
 
             new Win32ProcessorService().get(shell)
                     .forEach(processor -> log.info(processor.toString()));

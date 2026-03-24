@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Win32ComputerSystemExample {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         new Win32ComputerSystemService().get().ifPresent(computerSystem -> log.info(computerSystem.toString()));
     }

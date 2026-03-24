@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Win32ProcessExample {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         new Win32ProcessService().get().forEach(process -> log.info(process.toString()));
 

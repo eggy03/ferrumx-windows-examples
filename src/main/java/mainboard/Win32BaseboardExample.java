@@ -17,7 +17,7 @@ public class Win32BaseboardExample {
                 .forEach(baseboard -> log.info(baseboard.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32BaseboardService()
                     .get(shell)
                     .forEach(baseboard -> log.info(baseboard.toString()));

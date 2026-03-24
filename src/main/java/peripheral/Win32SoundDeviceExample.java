@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Win32SoundDeviceExample {
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         // can also use service.get(shell parameter...) instead of service.get() to have a manually managed PowerShell session
         // it is recommended to create and re-use your PowerShell session for batch queries

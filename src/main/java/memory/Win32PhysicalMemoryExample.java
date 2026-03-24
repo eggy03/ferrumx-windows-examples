@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Win32PhysicalMemoryExample {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // retrieve and print all PhysicalMemory data using an auto-managed PowerShell session
         // The "get()" method returns a list of Win32PhysicalMemory entity objects,
@@ -17,7 +17,7 @@ public class Win32PhysicalMemoryExample {
                 .forEach(memory -> log.info(memory.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32PhysicalMemoryService()
                     .get(shell)
                     .forEach(memory -> log.info(memory.toString()));

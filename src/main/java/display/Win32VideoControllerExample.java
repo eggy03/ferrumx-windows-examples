@@ -17,7 +17,7 @@ public class Win32VideoControllerExample {
                 .forEach(videoController -> log.info(videoController.toString()));
 
         // you can also reuse your own PowerShell session if you plan to query multiple services.
-        try(PowerShell shell = PowerShell.openSession()){
+        try (PowerShell shell = PowerShell.openSession()) {
             new Win32VideoControllerService()
                     .get(shell)
                     .forEach(videoController -> log.info(videoController.toString()));
