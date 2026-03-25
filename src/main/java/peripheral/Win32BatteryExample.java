@@ -1,18 +1,22 @@
 package peripheral;
 
+import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.peripheral.Win32BatteryService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32BatteryExample {
 
     public static void main(String[] args) {
 
-        // can also use service.get(shell parameter...) instead of service.get() to have a manually managed PowerShell session
-        // it is recommended to create and re-use your PowerShell session for batch queries
-        new Win32BatteryService().get()
-                .forEach(printer -> log.info(printer.toString()));
+        // with auto managed PowerShell session
+        new Win32BatteryService().get().forEach(System.out::println);
 
-        // you can also access individual fields via their getters
+        // with caller managed session
+        try (PowerShell shell = PowerShell.openSession()) {
+            new Win32BatteryService().get(shell).forEach(System.out::println);
+        }
+
+        // auto managed with timeout
+        new Win32BatteryService().get(5L).forEach(System.out::println);
     }
 }

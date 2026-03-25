@@ -4,27 +4,40 @@ import io.github.eggy03.ferrumx.windows.entity.compounded.Win32NetworkAdapterToC
 import io.github.eggy03.ferrumx.windows.entity.network.Win32NetworkAdapter;
 import io.github.eggy03.ferrumx.windows.entity.network.Win32NetworkAdapterConfiguration;
 import io.github.eggy03.ferrumx.windows.service.compounded.Win32NetworkAdapterToConfigurationService;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-@Slf4j
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "java:S106"})
 public class Win32NetworkCombinedExample {
 
     public static void main(String[] args) {
 
-        List<Win32NetworkAdapterToConfiguration> combinedNetwork =
-                new Win32NetworkAdapterToConfigurationService().get();
+        List<Win32NetworkAdapterToConfiguration> combinedNetwork = new Win32NetworkAdapterToConfigurationService().get();
 
-        // json pretty print
-        combinedNetwork.forEach(network -> log.info(network.toString()));
+        /*
+         * Print each aggregated network object in JSON format.
+         *
+         * The toString() implementation of Win32NetworkAdapterToConfiguration
+         * uses Gson pretty-printing.
+         */
+        combinedNetwork.forEach(System.out::println);
 
-        // access individual fields
+        /*
+         * Access the individual components.
+         *
+         * Every MsftNetAdapterToIpAndDnsAndProfile instance gives you:
+         * - Adapter ID: the adapter ID assigned to a network interface by Windows
+         * - Adapter Instance: The Win32NetworkAdapter instance having the adapter ID
+         * - Config List: A List of Win32NetworkAdapterConfiguration associated with the particular adapter
+         *
+         * Check out the class level documentation to know more about the classes
+         */
         combinedNetwork.forEach(network -> {
-            String deviceId = network.getDeviceId();
-            Win32NetworkAdapter adapter = network.getAdapter();
+            String adapterId = network.getDeviceId();
+            Win32NetworkAdapter adapterInstance = network.getAdapter();
             List<Win32NetworkAdapterConfiguration> configurationList = network.getConfigurationList();
+
+            // access or print them
         });
     }
 }

@@ -7,11 +7,10 @@ import io.github.eggy03.ferrumx.windows.entity.network.Win32NetworkAdapterSettin
 import io.github.eggy03.ferrumx.windows.service.network.Win32NetworkAdapterConfigurationService;
 import io.github.eggy03.ferrumx.windows.service.network.Win32NetworkAdapterService;
 import io.github.eggy03.ferrumx.windows.service.network.Win32NetworkAdapterSettingService;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32NetworkExample {
 
     public static void main(String[] args) {
@@ -23,9 +22,9 @@ public class Win32NetworkExample {
             List<Win32NetworkAdapterConfiguration> configurationList = new Win32NetworkAdapterConfigurationService().get(shell);
             List<Win32NetworkAdapterSetting> settingList = new Win32NetworkAdapterSettingService().get(shell);
 
-            adapterList.forEach(adapter -> log.info(adapter.toString()));
-            configurationList.forEach(config -> log.info(config.toString()));
-            settingList.forEach(setting -> log.info(setting.toString()));
+            adapterList.forEach(System.out::println);
+            configurationList.forEach(System.out::println);
+            settingList.forEach(System.out::println);
 
             // you can also access individual fields via their getters
         }

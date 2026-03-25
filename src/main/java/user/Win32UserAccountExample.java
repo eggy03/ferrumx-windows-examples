@@ -1,13 +1,11 @@
 package user;
 
 import io.github.eggy03.ferrumx.windows.service.user.Win32UserAccountService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32UserAccountExample {
 
     public static void main(String[] args) {
-        new Win32UserAccountService().get()
-                .forEach(user -> log.info(user.toString()));
+        new Win32UserAccountService().get().forEach(System.out::println);
     }
 }

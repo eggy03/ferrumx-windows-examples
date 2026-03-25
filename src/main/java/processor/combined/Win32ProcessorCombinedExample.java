@@ -4,12 +4,10 @@ import io.github.eggy03.ferrumx.windows.entity.compounded.Win32ProcessorToCacheM
 import io.github.eggy03.ferrumx.windows.entity.processor.Win32CacheMemory;
 import io.github.eggy03.ferrumx.windows.entity.processor.Win32Processor;
 import io.github.eggy03.ferrumx.windows.service.compounded.Win32ProcessorToCacheMemoryService;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-@Slf4j
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "java:S106"})
 public class Win32ProcessorCombinedExample {
 
     public static void main(String[] args) {
@@ -24,13 +22,26 @@ public class Win32ProcessorCombinedExample {
          *
          * This convenience class helps users avoid performing their own mapping.
          */
-        List<Win32ProcessorToCacheMemory> combinedProcessorAndCacheList =
-                new Win32ProcessorToCacheMemoryService().get();
+        List<Win32ProcessorToCacheMemory> combinedProcessorAndCacheList = new Win32ProcessorToCacheMemoryService().get();
 
-        // JSON pretty print the entire object or lists of objects
-        combinedProcessorAndCacheList.forEach(processorAndCache -> log.info(processorAndCache.toString()));
+        /*
+         * Print each aggregated network object in JSON format.
+         *
+         * The toString() implementation of Win32NetworkAdapterToConfiguration
+         * uses Gson pretty-printing.
+         */
+        combinedProcessorAndCacheList.forEach(System.out::println);
 
-        // or access the individual fields
+        /*
+         * Access the individual components.
+         *
+         * Every Win32ProcessorToCacheMemory instance gives you:
+         *   - deviceId: the device ID of the CPU set by WMI
+         *   - Win32Processor: the CPU instance itself
+         *   - List<Win32CacheMemory>: a list of cache memories associated with this CPU instance
+         *
+         * Check out the class level documentation to know more about the classes
+         */
         combinedProcessorAndCacheList.forEach(processorAndCache -> {
             String deviceId = processorAndCache.getDeviceId();
             Win32Processor processor = processorAndCache.getProcessor();

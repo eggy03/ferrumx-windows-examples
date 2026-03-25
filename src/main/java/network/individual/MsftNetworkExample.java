@@ -9,11 +9,10 @@ import io.github.eggy03.ferrumx.windows.service.network.MsftDnsClientServerAddre
 import io.github.eggy03.ferrumx.windows.service.network.MsftNetAdapterService;
 import io.github.eggy03.ferrumx.windows.service.network.MsftNetConnectionProfileService;
 import io.github.eggy03.ferrumx.windows.service.network.MsftNetIpAddressService;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class MsftNetworkExample {
 
     public static void main(String[] args) {
@@ -26,10 +25,10 @@ public class MsftNetworkExample {
             List<MsftDnsClientServerAddress> dnsClientServerAddressList = new MsftDnsClientServerAddressService().get(shell);
             List<MsftNetConnectionProfile> connectionProfileList = new MsftNetConnectionProfileService().get(shell);
 
-            adapterList.forEach(adapter -> log.info(adapter.toString()));
-            ipAddressList.forEach(ip -> log.info(ip.toString()));
-            dnsClientServerAddressList.forEach(dns -> log.info(dns.toString()));
-            connectionProfileList.forEach(profile -> log.info(profile.toString()));
+            adapterList.forEach(System.out::println);
+            ipAddressList.forEach(System.out::println);
+            dnsClientServerAddressList.forEach(System.out::println);
+            connectionProfileList.forEach(System.out::println);
 
             // you can also access individual fields via their getters
         }

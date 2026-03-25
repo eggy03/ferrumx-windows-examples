@@ -1,4 +1,4 @@
-Contains examples for v3.x.x of the API
+Contains examples for v3.x.x and v4.x.x of the API
 
 Requires: Java 8 and above
 
@@ -11,7 +11,6 @@ import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.processor.Win32AssociatedProcessorMemoryService;
 import io.github.eggy03.ferrumx.windows.service.processor.Win32CacheMemoryService;
 import io.github.eggy03.ferrumx.windows.service.processor.Win32ProcessorService;
-import lombok.extern.slf4j.Slf4j;
 
 public class Win32ProcessorAndCacheExample {
 

@@ -1,18 +1,22 @@
 package peripheral;
 
+import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.peripheral.Win32SoundDeviceService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32SoundDeviceExample {
 
     public static void main(String[] args) {
 
-        // can also use service.get(shell parameter...) instead of service.get() to have a manually managed PowerShell session
-        // it is recommended to create and re-use your PowerShell session for batch queries
-        new Win32SoundDeviceService().get()
-                .forEach(soundDevice -> log.info(soundDevice.toString()));
+        // with auto managed PowerShell session
+        new Win32SoundDeviceService().get().forEach(System.out::println);
 
-        // you can also access individual fields via their getters
+        // with caller managed session
+        try (PowerShell shell = PowerShell.openSession()) {
+            new Win32SoundDeviceService().get(shell).forEach(System.out::println);
+        }
+
+        // auto managed with timeout
+        new Win32SoundDeviceService().get(5L).forEach(System.out::println);
     }
 }

@@ -2,32 +2,21 @@ package display;
 
 import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.display.Win32DesktopMonitorService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32DesktopMonitorExample {
 
     public static void main(String[] args) {
 
-        // retrieve and print all monitor data using an auto-managed PowerShell session
-        // The "get()" method returns a list of Win32DesktopMonitor entity objects,
-        // and each object’s "toString()" prints its fields in JSON pretty-print format.
-        new Win32DesktopMonitorService()
-                .get()
-                .forEach(monitor -> log.info(monitor.toString()));
+        // with auto managed PowerShell session
+        new Win32DesktopMonitorService().get().forEach(System.out::println);
 
-        // you can also reuse your own PowerShell session if you plan to query multiple services.
+        // with caller managed session
         try (PowerShell shell = PowerShell.openSession()) {
-            new Win32DesktopMonitorService()
-                    .get(shell)
-                    .forEach(monitor -> log.info(monitor.toString()));
+            new Win32DesktopMonitorService().get(shell).forEach(System.out::println);
         }
 
-        // you can also access individual fields for each Win32DesktopMonitor object
-        new Win32DesktopMonitorService()
-                .get()
-                .forEach(monitor ->
-                        log.info("{}, {}", monitor.getDeviceId(), monitor.getName()) // more fields accessible
-                );
+        // auto managed with timeout
+        new Win32DesktopMonitorService().get(5L).forEach(System.out::println);
     }
 }

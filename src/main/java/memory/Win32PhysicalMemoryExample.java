@@ -2,32 +2,21 @@ package memory;
 
 import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.memory.Win32PhysicalMemoryService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32PhysicalMemoryExample {
 
     public static void main(String[] args) {
 
-        // retrieve and print all PhysicalMemory data using an auto-managed PowerShell session
-        // The "get()" method returns a list of Win32PhysicalMemory entity objects,
-        // and each object’s "toString()" prints its fields in JSON pretty-print format.
-        new Win32PhysicalMemoryService()
-                .get()
-                .forEach(memory -> log.info(memory.toString()));
+        // with auto managed PowerShell session
+        new Win32PhysicalMemoryService().get().forEach(System.out::println);
 
-        // you can also reuse your own PowerShell session if you plan to query multiple services.
+        // with caller managed session
         try (PowerShell shell = PowerShell.openSession()) {
-            new Win32PhysicalMemoryService()
-                    .get(shell)
-                    .forEach(memory -> log.info(memory.toString()));
+            new Win32PhysicalMemoryService().get(shell).forEach(System.out::println);
         }
 
-        // you can also access individual fields for each Win32PhysicalMemory object
-        new Win32PhysicalMemoryService()
-                .get()
-                .forEach(memory ->
-                        log.info("{}, {}", memory.getTag(), memory.getPartNumber()) // more fields accessible
-                );
+        // auto managed with timeout
+        new Win32PhysicalMemoryService().get(5L).forEach(System.out::println);
     }
 }

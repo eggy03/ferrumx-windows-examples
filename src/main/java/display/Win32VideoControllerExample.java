@@ -2,32 +2,21 @@ package display;
 
 import com.profesorfalken.jpowershell.PowerShell;
 import io.github.eggy03.ferrumx.windows.service.display.Win32VideoControllerService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@SuppressWarnings("java:S106")
 public class Win32VideoControllerExample {
 
     public static void main(String[] args) {
 
-        // retrieve and print all Video Controller data using an auto-managed PowerShell session
-        // The "get()" method returns a list of Win32VideoController entity objects,
-        // and each object’s "toString()" prints its fields in JSON pretty-print format.
-        new Win32VideoControllerService()
-                .get()
-                .forEach(videoController -> log.info(videoController.toString()));
+        // with auto managed PowerShell session
+        new Win32VideoControllerService().get().forEach(System.out::println);
 
-        // you can also reuse your own PowerShell session if you plan to query multiple services.
+        // with caller managed session
         try (PowerShell shell = PowerShell.openSession()) {
-            new Win32VideoControllerService()
-                    .get(shell)
-                    .forEach(videoController -> log.info(videoController.toString()));
+            new Win32VideoControllerService().get(shell).forEach(System.out::println);
         }
 
-        // you can also access individual fields for each Win32VideoController object
-        new Win32VideoControllerService()
-                .get()
-                .forEach(videoController ->
-                        log.info("{}, {}", videoController.getDeviceId(), videoController.getName()) // more fields accessible
-                );
+        // auto managed with timeout
+        new Win32VideoControllerService().get(5L).forEach(System.out::println);
     }
 }
