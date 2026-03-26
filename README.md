@@ -1,4 +1,5 @@
-Contains examples for v3.x.x and v4.x.x of the API
+Examples provided in this repository are compatible with v3 and v4.
+v4 is backwards compatible with v3.
 
 Requires: Java 8 and above
 
