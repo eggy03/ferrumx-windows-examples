@@ -12,20 +12,19 @@ import io.github.eggy03.ferrumx.windows.service.processor.Win32AssociatedProcess
 import io.github.eggy03.ferrumx.windows.service.processor.Win32CacheMemoryService;
 import io.github.eggy03.ferrumx.windows.service.processor.Win32ProcessorService;
 
-public class Win32ProcessorAndCacheExample {
+public class Win32ProcessorExample {
 
     static void main(String[] args) {
-        // This example shows how to query each of Win32_Processor, Win32_AssociatedProcessorMemory and Win32_CacheMemory.
-        // You can also use service.get() instead of service.get(shell parameter...) to have an auto managed PowerShell session
-        // However, it is recommended to create and re-use your PowerShell session for batch queries like this
+        // with auto managed PowerShell session
+        new Win32ProcessorService().get().forEach(System.out::println);
+
+        // with caller managed session
         try (PowerShell shell = PowerShell.openSession()) {
-
             new Win32ProcessorService().get(shell).forEach(System.out::println);
-
-            new Win32AssociatedProcessorMemoryService().get(shell).forEach(System.out::println);
-
-            new Win32CacheMemoryService().get(shell).forEach(System.out::println);
         }
+
+        // auto managed with timeout
+        new Win32ProcessorService().get(5L).forEach(System.out::println);
     }
 }
 ```
@@ -40,15 +39,16 @@ public class Win32VideoControllerExample {
 
     static void main(String[] args) {
 
-        // retrieve and print all Video Controller data using an auto-managed PowerShell session
-        // The "get()" method returns a list of Win32VideoController entity objects,
-        // and each object’s "toString()" prints its fields in JSON pretty-print format.
+        // with auto managed PowerShell session
         new Win32VideoControllerService().get().forEach(System.out::println);
 
-        // you can also reuse your own PowerShell session if you plan to query multiple services.
+        // with caller managed session
         try (PowerShell shell = PowerShell.openSession()) {
             new Win32VideoControllerService().get(shell).forEach(System.out::println);
         }
+
+        // auto managed with timeout
+        new Win32VideoControllerService().get(5L).forEach(System.out::println);
 
     }
 }
@@ -64,15 +64,16 @@ public class Win32PhysicalMemoryExample {
 
     static void main(String[] args) {
 
-        // retrieve and print all PhysicalMemory data using an auto-managed PowerShell session
-        // The "get()" method returns a list of Win32PhysicalMemory entity objects,
-        // and each object’s "toString()" prints its fields in JSON pretty-print format.
+        // with auto managed PowerShell session
         new Win32PhysicalMemoryService().get().forEach(System.out::println);
 
-        // you can also reuse your own PowerShell session if you plan to query multiple services.
+        // with caller managed session
         try (PowerShell shell = PowerShell.openSession()) {
             new Win32PhysicalMemoryService().get(shell).forEach(System.out::println);
         }
+
+        // auto managed with timeout
+        new Win32PhysicalMemoryService().get(5L).forEach(System.out::println);
 
     }
 }
